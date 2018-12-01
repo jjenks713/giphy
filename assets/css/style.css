@@ -1,0 +1,19 @@
+body {
+    background-image: url("https://images.unsplash.com/photo-1453090927415-5f45085b65c0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a281f105ebc13c0450a98c2e9b681fcc&w=1000&q=80");
+    background-size: 100%;
+}
+.main-head {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 75px;
+}
+.container {
+    margin-top: 25px;
+    font-family: 'Indie Flower', cursive;
+}
+.add-text {
+    color: white;
+    font-size: 20px;
+}
+/* #buttons-view {
+    font-size: 20px;
+} */
