@@ -7,14 +7,38 @@ var bandsList = ["The Beatles", "Journey", "Leftover Salmon", "Glass Animals", "
 function displayBandGif() {
     var band = $(this).attr("data-name");
 
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + band + "&api_key=0EJh1JaP6Pcac4av6g129chc4TT3ibH3";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + band + "&limit=10&api_key=0EJh1JaP6Pcac4av6g129chc4TT3ibH3";
     
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function(response) {
         console.log(response);
+        var results = response.data;
+        for (let i = 0; i < results.length; i++) {
+            var bandDiv = $("<div class='float-left'>");
+            var bandImg = $("<img data-state='still'>");
+            var p = $("<p>");
+            p.html("<h3 class='text-light'>Rating: " + results[i].rating + "<h3>");
+            bandImg.attr("src", results[i].images.fixed_height_still.url);
+            bandDiv.append(p);
+            bandDiv.append(bandImg);
+            $("#band-gifs").append(bandDiv);
+            console.log(results[i]);
+            
+            bandDiv.click(function(){
+                var state = $(this).attr("data-state")
+                if (state === "still") {
+                    $(this).attr("src", results[i].images.fixed_height.url);                   
+                } else {
+                    $(this).attr("src", results[i].images.fixed_height_still.url);
+                }
+                console.log(this);
+            }) 
 
+            
+        }
+        
         
     })
 }

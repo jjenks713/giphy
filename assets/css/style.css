@@ -8,7 +8,7 @@ body {
     background-color: rgba(0, 0, 0, 0.356);
     padding: 25px;
 }
-.container {
+.container-fluid {
     margin-top: 25px;
     font-family: 'Indie Flower', cursive;
 }
