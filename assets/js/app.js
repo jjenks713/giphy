@@ -1,6 +1,6 @@
 // array of bands list
 var bandsList = ["The Beatles", "Journey", "Leftover Salmon", "Glass Animals", "Boston", "Two Feet",
- "Muse", "Coldplay", "The Chainsmokers", "AC/DC", "The Monkees", "Pantera"];
+ "Muse", "Coldplay"];
 
 // function to diplay GIFS 
 
