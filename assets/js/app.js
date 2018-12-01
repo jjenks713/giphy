@@ -6,8 +6,9 @@ var bandsList = ["The Beatles", "Journey", "Leftover Salmon", "Glass Animals", "
 
 function displayBandGif() {
     var band = $(this).attr("data-name");
-    var queryURL = "https://www.api.giphy.com?q=" + band + "&limit=10&rating=pg&api_key:=0EJh1JaP6Pcac4av6g129chc4TT3ibH3";
-    // var queryURL = "https://www.omdbapi.com/?t=" + band + "&y=&plot=short&apikey=trilogy";
+
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + band + "&api_key=0EJh1JaP6Pcac4av6g129chc4TT3ibH3";
+    
     $.ajax({
         url: queryURL,
         method: "GET"
