@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Bands</title>
+    <title>Musicians</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -21,36 +21,40 @@
             <div class="col text-center text-white main-head rounded">See Your Favorite Artists!</div>
         </div>
     </div>
-        <br>
-        <br>
+    <br>
+    <br>
     <div class="container-fluid">
         <div class="row">
-            <div class="col">
+            <div class="col-md-9">
+                <h1 class="text-light">Click an Artist button to see the Magic!</h1>
+                <br>
                 <div id="buttons-view"></div>
             </div>
+            <div class="col-md-3">
+                    <form id="band-form" class="text-right">
+                        <label class="add-text" for="band-input">
+                            <h2>Add an Artist!</h2>
+                        </label>
+                        <br>
+                        <input name="myform" type="text" id="band-input">
+                        <br>
+                        <br>
+                        <!-- Button triggers new movie to be added -->
+                        <input class="btn-dark add-text" id="add-band" type="submit" value="Add!">
+                        <input class="btn-dark add-text" id="reset" type="submit" value="Reset Artist">
+                        
+                    </form>
+                </div>
         </div>
         <br>
         <br>
-        <br>
         <div class="row">
-            <div class="col-md-9">
+            <div class="col">
                 <!-- Movies will Get Dumped Here -->
                 <div id="band-gifs"></div>
             </div>
-            <div class="col-md-3">
-                <form id="band-form" class="text-right">
-                    <label class="add-text" for="band-input">
-                        <h2>Add a Band!</h2>
-                    </label>
-                    <input name="myform" type="text" id="band-input">
-                    <br>
-                    <br>
-                    <!-- Button triggers new movie to be added -->
-                    <input class="btn-dark add-text" id="add-band" type="submit" value="Add!">
-                    <input class="btn-dark add-text" id="reset" type="submit" value="Reset">
-                </form>
-            </div>
-            
+
+
 
         </div>
     </div>

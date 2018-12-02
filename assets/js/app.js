@@ -1,6 +1,6 @@
 // array of bands list
 var bandsList = ["The Beatles", "AC/DC", "Marshmello", "Glass Animals", "Slash", "Two Feet",
-    "Fall Out Boy", "Coldplay"];
+    "Fall Out Boy", "Eminem"];
 
 // function to diplay GIFS 
 function displayBandGif() {
@@ -27,20 +27,22 @@ function displayBandGif() {
             bandImg.attr("src", results[i].images.fixed_height_still.url);
             bandDiv.append(bandImg);
             bandDiv.append(p);
+            bandDiv.append("<h5 class='text-center text-light'>" + results[i].title + "<h5>");
+            bandDiv.append("<a href='" + results[i].embed_url + "' target='_blank' class='text-center text-light'><h5>Full Screen<h5></a>");
             $("#band-gifs").prepend(bandDiv);
             console.log(results[i]);
 
             // function to click and animate each gif
-            bandDiv.on("click", "img", function() {
+            bandDiv.on("click", "img", function () {
                 var state = $(this).attr("data-state")
                 if (state === "still") {
                     $(this).attr("src", results[i].images.fixed_height.url);
                     $(this).attr("data-state", "animate");
-                  } else {
+                } else {
                     $(this).attr("src", results[i].images.fixed_height_still.url);
                     $(this).attr("data-state", "still");
-                  }
-            
+                }
+
                 console.log(this);
             })
 
@@ -73,7 +75,7 @@ $("#add-band").click(function (event) {
     bandsList.push(band);
     showButtons();
     $(this).closest('form').find('input[type=text], textarea').val('');
-    
+
 })
 
 // on click function for all buttons
