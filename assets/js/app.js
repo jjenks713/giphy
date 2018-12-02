@@ -1,6 +1,6 @@
 // array of bands list
 var bandsList = ["The Beatles", "AC/DC", "Marshmello", "Glass Animals", "Slash", "Two Feet",
-    "Fall Out Boy", "Eminem"];
+    "Daft Punk", "Eminem"];
 
 // function to diplay GIFS 
 function displayBandGif() {
