@@ -1,6 +1,6 @@
 // array of bands list
-var bandsList = ["The Beatles", "Journey", "Leftover Salmon", "Glass Animals", "Boston", "Two Feet",
-    "Muse", "Coldplay"];
+var bandsList = ["The Beatles", "AC/DC", "Marshmello", "Glass Animals", "Slash", "Two Feet",
+    "Fall Out Boy", "Coldplay"];
 
 // function to diplay GIFS 
 function displayBandGif() {
@@ -72,6 +72,8 @@ $("#add-band").click(function (event) {
     var band = $("#band-input").val().trim();
     bandsList.push(band);
     showButtons();
+    $(this).closest('form').find('input[type=text], textarea').val('');
+    
 })
 
 // on click function for all buttons
