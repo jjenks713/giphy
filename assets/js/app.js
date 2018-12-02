@@ -1,45 +1,62 @@
 // array of bands list
 var bandsList = ["The Beatles", "Journey", "Leftover Salmon", "Glass Animals", "Boston", "Two Feet",
- "Muse", "Coldplay"];
+    "Muse", "Coldplay"];
 
 // function to diplay GIFS 
-
 function displayBandGif() {
     var band = $(this).attr("data-name");
 
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + band + "&limit=10&api_key=0EJh1JaP6Pcac4av6g129chc4TT3ibH3";
-    
+
     $.ajax({
         url: queryURL,
         method: "GET"
-    }).then(function(response) {
+    }).then(function (response) {
         console.log(response);
+
         var results = response.data;
+
+        // loop to display all 10 gifs
         for (let i = 0; i < results.length; i++) {
             var bandDiv = $("<div class='float-left'>");
-            var bandImg = $("<img data-state='still'>");
+            var bandImg = $("<img id='img' data-state='still'>");
+            var bandImg2 = $("<img id='img' data-state='animate'>");
             var p = $("<p>");
             p.html("<h3 class='text-light'>Rating: " + results[i].rating + "<h3>");
             bandImg.attr("src", results[i].images.fixed_height_still.url);
+            bandImg2.attr("src", results[i].images.fixed_height.url);
             bandDiv.append(p);
             bandDiv.append(bandImg);
             $("#band-gifs").append(bandDiv);
             console.log(results[i]);
-            
-            bandDiv.click(function(){
-                var state = $(this).attr("data-state")
-                if (state === "still") {
-                    $(this).attr("src", results[i].images.fixed_height.url);                   
-                } else {
-                    $(this).attr("src", results[i].images.fixed_height_still.url);
-                }
-                console.log(this);
-            }) 
 
+            // function to click and animate each gif
+            $(bandDiv).on("click", "img", function() {
+                var state = $("img").attr("data-state")
+                // if (state === "still") {
+                //     // $(this).attr("src", results[i].images.fixed_height.url);
+                //     // $(this).attr("data-state", "animate");
+                //     bandDiv.append(bandImg2);
+                //     $(this).attr("data-state", "animate");
+                //     $("#band-gifs").html(bandDiv);
+                // } else {
+                //     $(this).attr("src", results[i].images.fixed_height_still.url);
+                //     $(this).attr("data-state", "still");
+                // }
+                if (state === "still") {
+                    $(this).attr("src", results[i].images.fixed_height.url);
+                    $(this).attr("data-state", "animate");
+                    bandDiv.append(bandImg2);
+                  } else {
+                    $(this).attr("src", results[i].images.fixed_height_still.url);
+                    $(this).attr("data-state", "still");
+                    bandDiv.append(bandImg);
+                  }
             
+                console.log(this);
+            })
+
         }
-        
-        
     })
 }
 
@@ -49,7 +66,7 @@ function showButtons() {
     $("#buttons-view").empty();
 
     // loop that appends a button for each string in the array.
-    for (var i = 0; i < bandsList.length; i++) { 
+    for (var i = 0; i < bandsList.length; i++) {
         // $("#buttons-view").append("<button class='btn btn-dark'>" + bands[i] + "</button> ");
         console.log(bandsList[i]);
         var a = $("<button class='btn btn-dark'></button> ");
@@ -57,12 +74,12 @@ function showButtons() {
         a.attr("data-name", bandsList[i]);
         a.html("<h4>" + bandsList[i] + "</h4>");
         $("#buttons-view").append(a);
-    } 
+    }
 }
 
 
-    // function to add buttons from form
-$("#add-band").click(function(event) {
+// function to add buttons from form
+$("#add-band").click(function (event) {
     event.preventDefault();
     var band = $("#band-input").val().trim();
     bandsList.push(band);
@@ -76,6 +93,6 @@ $(document).on("click", ".band-btn", displayBandGif);
 showButtons()
 
 // reset function
-$("#reset").click(function() {    
+$("#reset").click(function () {
     showButtons();
 })
