@@ -28,7 +28,9 @@ function displayBandGif() {
             bandDiv.append(bandImg);
             bandDiv.append(p);
             bandDiv.append("<h5 class='text-center text-light'>" + results[i].title + "<h5>");
-            bandDiv.append("<a href='" + results[i].embed_url + "' target='_blank' class='text-center text-light'><h5>Full Screen<h5></a><a class='text-center text-light' href='" + results[i].images.fixed_height.url + "' download='" + results[i].images.fixed_height.url + "'>Click here to download image</a>");
+            bandDiv.append("<a href='" + results[i].embed_url + "' target='_blank' class='text-center text-light'><h5>Full Screen<h5></a>");
+            // adding download link
+            // <a class='text-center text-light' href='" + results[i].images.fixed_height.url + "' download='" + results[i].images.fixed_height.url + "'>Click here to download image</a>");
             $("#band-gifs").append(bandDiv);
             console.log(results[i]);
 
