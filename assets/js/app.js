@@ -30,7 +30,7 @@ function displayBandGif() {
 
             // function to click and animate each gif
             bandDiv.on("click", "img", function() {
-                var state = $("img").attr("data-state")
+                var state = $("#img").attr("data-state")
                 if (state === "still") {
                     $(this).attr("src", results[i].images.fixed_height.url);
                     $(this).attr("data-state", "animate");
