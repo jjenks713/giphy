@@ -18,7 +18,7 @@ function displayBandGif() {
 
         // loop to display all 10 gifs
         for (let i = 0; i < results.length; i++) {
-            var bandDiv = $("<div class='float-left'>");
+            var bandDiv = $("<div class='float-left img-divs'>");
             var bandImg = $("<img id='img' data-state='still'>");
             var bandImg2 = $("<img id='img' data-state='animate'>");
             var p = $("<p>");
@@ -31,26 +31,14 @@ function displayBandGif() {
             console.log(results[i]);
 
             // function to click and animate each gif
-            $(bandDiv).on("click", "img", function() {
+            bandDiv.on("click", "img", function() {
                 var state = $("img").attr("data-state")
-                // if (state === "still") {
-                //     // $(this).attr("src", results[i].images.fixed_height.url);
-                //     // $(this).attr("data-state", "animate");
-                //     bandDiv.append(bandImg2);
-                //     $(this).attr("data-state", "animate");
-                //     $("#band-gifs").html(bandDiv);
-                // } else {
-                //     $(this).attr("src", results[i].images.fixed_height_still.url);
-                //     $(this).attr("data-state", "still");
-                // }
                 if (state === "still") {
                     $(this).attr("src", results[i].images.fixed_height.url);
                     $(this).attr("data-state", "animate");
-                    bandDiv.append(bandImg2);
                   } else {
                     $(this).attr("src", results[i].images.fixed_height_still.url);
                     $(this).attr("data-state", "still");
-                    bandDiv.append(bandImg);
                   }
             
                 console.log(this);
