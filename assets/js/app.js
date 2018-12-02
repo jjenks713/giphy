@@ -6,6 +6,8 @@ var bandsList = ["The Beatles", "Journey", "Leftover Salmon", "Glass Animals", "
 function displayBandGif() {
     var band = $(this).attr("data-name");
 
+    $("#band-gifs").empty();
+
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + band + "&limit=10&api_key=0EJh1JaP6Pcac4av6g129chc4TT3ibH3";
 
     $.ajax({
@@ -25,7 +27,7 @@ function displayBandGif() {
             bandImg.attr("src", results[i].images.fixed_height_still.url);
             bandDiv.append(p);
             bandDiv.append(bandImg);
-            $("#band-gifs").append(bandDiv);
+            $("#band-gifs").prepend(bandDiv);
             console.log(results[i]);
 
             // function to click and animate each gif
