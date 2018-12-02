@@ -19,12 +19,10 @@ function displayBandGif() {
         // loop to display all 10 gifs
         for (let i = 0; i < results.length; i++) {
             var bandDiv = $("<div class='float-left img-divs'>");
-            var bandImg = $("<img id='img' data-state='still'>");
-            var bandImg2 = $("<img id='img' data-state='animate'>");
+            var bandImg = $("<img class='images-class' id='img' data-state='still'>");
             var p = $("<p>");
             p.html("<h3 class='text-light'>Rating: " + results[i].rating + "<h3>");
             bandImg.attr("src", results[i].images.fixed_height_still.url);
-            bandImg2.attr("src", results[i].images.fixed_height.url);
             bandDiv.append(p);
             bandDiv.append(bandImg);
             $("#band-gifs").append(bandDiv);
