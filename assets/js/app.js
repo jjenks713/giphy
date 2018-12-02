@@ -22,11 +22,11 @@ function displayBandGif() {
         for (let i = 0; i < results.length; i++) {
             var bandDiv = $("<div class='float-left img-divs'>");
             var bandImg = $("<img class='images-class' id='img' data-state='still'>");
-            var p = $("<p>");
+            var p = $("<p class='text-center'>");
             p.html("<h3 class='text-light'>Rating: " + results[i].rating + "<h3>");
             bandImg.attr("src", results[i].images.fixed_height_still.url);
-            bandDiv.append(p);
             bandDiv.append(bandImg);
+            bandDiv.append(p);
             $("#band-gifs").prepend(bandDiv);
             console.log(results[i]);
 
