@@ -76,7 +76,7 @@ $("#add-band").click(function (event) {
     var band = $("#band-input").val().trim();
     bandsList.push(band);
     showButtons();
-    $(this).closest('form').find('input[type=text], textarea').val('');
+    $("#band-input").val('');
 
 })
 
