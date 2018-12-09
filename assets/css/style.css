@@ -33,7 +33,7 @@ body {
     border-radius: 3%;
 }
 @media screen and (max-width: 475px) {
-    .img-div {
-        margin-left: none;
-        margin-right: 25px;
+    #band-gifs {
+        width: 100%;
     } 
+}

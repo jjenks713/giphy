@@ -77,7 +77,6 @@ $("#add-band").click(function (event) {
     bandsList.push(band);
     showButtons();
     $("#band-input").val('');
-
 })
 
 // on click function for all buttons
